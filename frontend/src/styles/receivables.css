@@ -1,0 +1,1864 @@
+.receivables-page {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  color: #111827;
+}
+
+.receivables-heading,
+.receivable-content-card,
+.receivable-summary-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.receivables-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px;
+}
+
+.receivables-heading h1 {
+  margin: 2px 0 5px;
+  color: #1b2430;
+  font-size: 25px;
+}
+
+.receivables-heading span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.receivables-eyebrow {
+  margin: 0;
+  color: #b78100;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.receivable-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.receivable-summary-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  min-height: 112px;
+  padding: 18px;
+}
+
+.receivable-summary-icon {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 11px;
+  background: rgba(244, 180, 0, 0.14);
+  color: #9a7000;
+}
+
+.receivable-summary-card p,
+.receivable-summary-card small {
+  margin: 0;
+  color: #6b7280;
+}
+
+.receivable-summary-card p {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.receivable-summary-card strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #1b2430;
+  font-size: 21px;
+}
+
+.receivable-summary-card small {
+  font-size: 11px;
+}
+
+.receivable-content-card {
+  overflow: hidden;
+}
+
+.receivable-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.receivable-search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 520px;
+  gap: 9px;
+  padding: 0 12px;
+  border: 1px solid #dbe1e8;
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.receivable-search input,
+.receivable-toolbar select {
+  height: 40px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #111827;
+  font: inherit;
+  font-size: 13px;
+}
+
+.receivable-search input {
+  width: 100%;
+}
+
+.receivable-toolbar select {
+  min-width: 170px;
+  padding: 0 11px;
+  border: 1px solid #dbe1e8;
+  border-radius: 9px;
+}
+
+.receivable-table-wrap {
+  overflow-x: auto;
+}
+
+.receivable-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.receivable-table th,
+.receivable-table td {
+  padding: 13px 15px;
+  border-bottom: 1px solid #edf0f4;
+  text-align: left;
+  font-size: 12px;
+}
+
+.receivable-table th {
+  background: #f8fafc;
+  color: #596273;
+  font-size: 10px;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.receivable-table td {
+  color: #374151;
+}
+
+.receivable-table td strong {
+  display: block;
+  color: #1b2430;
+}
+
+.receivable-table td small {
+  display: block;
+  margin-top: 3px;
+  color: #8a93a1;
+  font-size: 10px;
+}
+
+.receivable-table .balance-cell {
+  color: #b42318;
+  font-weight: 800;
+}
+
+.receivable-table .actions {
+  text-align: center;
+}
+
+.receivable-actions {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.receivable-actions button,
+.receivable-icon-button {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid #dce2e9;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #344054;
+  cursor: pointer;
+}
+
+.receivable-actions button:hover,
+.receivable-icon-button:hover {
+  border-color: #f4b400;
+  color: #9a7000;
+}
+
+.receivable-actions button.payment {
+  border-color: #f4b400;
+  background: #f4b400;
+  color: #1b2430;
+}
+
+.receivable-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.receivable-status.unpaid {
+  background: #fff1f0;
+  color: #b42318;
+}
+
+.receivable-status.partially-paid {
+  background: #fff7db;
+  color: #8a6500;
+}
+
+.receivable-status.paid {
+  background: #ecfdf3;
+  color: #027a48;
+}
+
+.receivable-status.overdue {
+  background: #fef3f2;
+  color: #912018;
+}
+
+.receivable-status.cancelled {
+  background: #f2f4f7;
+  color: #667085;
+}
+
+.empty-cell {
+  height: 140px;
+  color: #7a8492 !important;
+  text-align: center !important;
+}
+
+.receivable-notice {
+  position: fixed;
+  z-index: 5000;
+  top: 22px;
+  right: 22px;
+  display: flex;
+  width: min(390px, calc(100vw - 44px));
+  gap: 11px;
+  padding: 14px 16px;
+  border: 1px solid;
+  border-radius: 11px;
+  background: #ffffff;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.15);
+}
+
+.receivable-notice.success {
+  border-color: #a6f4c5;
+  color: #027a48;
+}
+
+.receivable-notice.error {
+  border-color: #fecdca;
+  color: #b42318;
+}
+
+.receivable-notice strong,
+.receivable-notice span {
+  display: block;
+}
+
+.receivable-notice span {
+  margin-top: 3px;
+  color: #475467;
+  font-size: 12px;
+}
+
+.receivable-modal-backdrop {
+  position: fixed;
+  z-index: 4000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(17, 24, 39, 0.56);
+}
+
+.receivable-modal {
+  width: min(540px, 96vw);
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+}
+
+.receivable-modal.wide {
+  width: min(920px, 96vw);
+}
+
+.receivable-modal-header {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.receivable-modal-header h2 {
+  margin: 0;
+  color: #1b2430;
+  font-size: 18px;
+}
+
+.receivable-modal-body {
+  padding: 18px;
+}
+
+.receivable-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.receivable-detail-grid > div,
+.receivable-payment-account,
+.receivable-history-heading {
+  padding: 13px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.receivable-detail-grid span,
+.receivable-payment-account span,
+.receivable-history-heading span,
+.receivable-notes-box span {
+  display: block;
+  margin-bottom: 5px;
+  color: #667085;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.receivable-detail-grid strong {
+  color: #1b2430;
+  font-size: 13px;
+}
+
+.detail-balance {
+  color: #b42318 !important;
+}
+
+.receivable-notes-box {
+  margin-top: 12px;
+  padding: 13px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.receivable-notes-box p {
+  margin: 0;
+  color: #475467;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.receivable-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.receivable-payment-form {
+  display: grid;
+  gap: 14px;
+}
+
+.receivable-payment-account {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 15px;
+}
+
+.receivable-payment-account strong,
+.receivable-history-heading strong {
+  color: #1b2430;
+  font-size: 14px;
+}
+
+.receivable-payment-form label {
+  display: grid;
+  gap: 6px;
+}
+
+.receivable-payment-form label > span {
+  color: #475467;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.receivable-payment-form input,
+.receivable-payment-form select,
+.receivable-payment-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d8dee8;
+  border-radius: 9px;
+  outline: none;
+  background: #ffffff;
+  color: #111827;
+  font: inherit;
+  font-size: 13px;
+}
+
+.receivable-payment-form input,
+.receivable-payment-form select {
+  height: 42px;
+  padding: 0 11px;
+}
+
+.receivable-payment-form textarea {
+  min-height: 90px;
+  padding: 10px 11px;
+  resize: vertical;
+}
+
+.receivable-payment-form input:focus,
+.receivable-payment-form select:focus,
+.receivable-payment-form textarea:focus {
+  border-color: #f4b400;
+  box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.13);
+}
+
+.receivable-history-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.receivable-table.compact th,
+.receivable-table.compact td {
+  padding: 11px 12px;
+}
+
+.receivable-loading-panel {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  color: #667085;
+}
+
+.spin {
+  animation: receivable-spin 0.8s linear infinite;
+}
+
+@keyframes receivable-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1050px) {
+  .receivable-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .receivables-page {
+    padding: 14px;
+  }
+
+  .receivables-heading,
+  .receivable-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .receivable-search {
+    max-width: none;
+  }
+
+  .receivable-toolbar select {
+    width: 100%;
+  }
+
+  .receivable-summary-grid,
+  .receivable-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .receivable-payment-account,
+  .receivable-history-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .receivable-history-heading {
+    flex-direction: column;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .receivable-modal,
+  .receivable-modal * {
+    visibility: visible;
+  }
+
+  .receivable-modal {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    max-height: none;
+    box-shadow: none;
+  }
+
+  .receivable-modal-header button,
+  .receivable-modal-footer {
+    display: none !important;
+  }
+}
+
+.receivable-table:not(.compact) th:last-child,
+.receivable-table:not(.compact) td:last-child {
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.receivable-table:not(.compact) th:last-child {
+  text-align: center;
+}
+
+.receivable-table:not(.compact) td:last-child .receivable-actions {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.receivable-table:not(.compact) td:last-child .receivable-actions button {
+  display: inline-grid;
+  flex: 0 0 34px;
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+}
+
+.receivables-page {
+  display: grid;
+  gap: 18px;
+  padding: 0;
+  color: #111827;
+}
+
+.receivables-heading {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.receivables-heading h1 {
+  margin: 0 0 5px;
+  color: #111827;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+.receivables-heading span {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.receivables-eyebrow {
+  display: none;
+}
+
+.receivable-summary-grid {
+  gap: 13px;
+}
+
+.receivable-summary-card {
+  min-height: 96px;
+  padding: 16px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 16px;
+}
+
+.receivable-summary-icon {
+  width: 42px;
+  height: 42px;
+  flex-basis: 42px;
+  border-radius: 12px;
+  background: #fff7d6;
+  color: #b98300;
+}
+
+.receivable-summary-card p {
+  margin-bottom: 5px;
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.receivable-summary-card strong {
+  margin-bottom: 3px;
+  color: #111827;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.receivable-summary-card small {
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.receivable-content-card {
+  border-radius: 16px;
+}
+
+.receivable-toolbar {
+  padding: 14px;
+  gap: 14px;
+}
+
+.receivable-search,
+.receivable-toolbar select {
+  height: 42px;
+  min-height: 42px;
+  border-radius: 10px;
+}
+
+.receivable-search {
+  max-width: 690px;
+}
+
+.receivable-table th {
+  padding: 12px 13px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.receivable-table td {
+  padding: 13px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.receivable-actions button,
+.receivable-icon-button {
+  width: 34px;
+  height: 34px;
+  border-color: #f4b400;
+  border-radius: 9px;
+  color: #1b2430;
+}
+
+.receivable-actions button:hover,
+.receivable-icon-button:hover,
+.receivable-actions button.payment {
+  border-color: #f4b400;
+  background: #f4b400;
+  color: #1b2430;
+}
+
+.receivable-summary-card {
+  border: 1px solid #e5e7eb !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.receivable-summary-icon {
+  width: 42px !important;
+  height: 42px !important;
+  flex: 0 0 42px !important;
+
+  display: grid !important;
+  place-items: center;
+
+  border: 1px solid #f4b400 !important;
+  border-radius: 12px !important;
+
+  background: #fff7dc !important;
+  color: #111827 !important;
+}
+
+.receivable-summary-icon svg {
+  color: #111827 !important;
+  stroke: #111827 !important;
+}
+
+
+.receivable-search,
+.receivable-toolbar select {
+  border-color: #d8dee8 !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+.receivable-search:focus-within,
+.receivable-toolbar select:focus {
+  border-color: #f4b400 !important;
+  box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.12) !important;
+}
+
+
+
+.receivable-table th {
+  background: #f8fafc !important;
+  color: #475569 !important;
+}
+
+.receivable-table td {
+  color: #374151 !important;
+}
+
+.receivable-table tbody tr:hover {
+  background: #fffdf6 !important;
+}
+
+.receivable-table .balance-cell,
+.detail-balance {
+  color: #111827 !important;
+}
+
+
+
+.receivable-status,
+.receivable-status.unpaid,
+.receivable-status.partially-paid,
+.receivable-status.paid,
+.receivable-status.overdue,
+.receivable-status.cancelled {
+  min-height: 25px;
+  border: 1px solid #f4b400 !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+
+
+.receivable-actions button,
+.receivable-icon-button,
+.receivable-actions button.payment {
+  width: 34px !important;
+  height: 34px !important;
+
+  border: 1px solid #f4b400 !important;
+  border-radius: 9px !important;
+
+  background: #ffffff !important;
+  color: #111827 !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+.receivable-actions button svg,
+.receivable-icon-button svg,
+.receivable-actions button.payment svg {
+  color: #111827 !important;
+  stroke: #111827 !important;
+}
+
+.receivable-actions button:hover:not(:disabled),
+.receivable-icon-button:hover:not(:disabled),
+.receivable-actions button.payment:hover:not(:disabled) {
+  border-color: #f4b400 !important;
+  background: #f4b400 !important;
+  color: #111827 !important;
+  transform: translateY(-1px);
+}
+
+.receivable-actions button:hover:not(:disabled) svg,
+.receivable-icon-button:hover:not(:disabled) svg,
+.receivable-actions button.payment:hover:not(:disabled) svg {
+  color: #111827 !important;
+  stroke: #111827 !important;
+}
+
+
+
+.receivable-modal {
+  border: 1px solid #e5e7eb !important;
+  background: #f5f7fa !important;
+  box-shadow: 0 26px 70px rgba(15, 23, 42, 0.22) !important;
+}
+
+.receivable-modal-header {
+  background: #ffffff !important;
+  border-bottom-color: #e5e7eb !important;
+}
+
+.receivable-modal-header h2 {
+  color: #111827 !important;
+}
+
+.receivable-modal-body {
+  background: #f5f7fa !important;
+}
+
+
+
+.receivable-detail-grid > div,
+.receivable-payment-account,
+.receivable-history-heading,
+.receivable-notes-box {
+  border: 1px solid #e5e7eb !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+.receivable-detail-grid strong,
+.receivable-payment-account strong,
+.receivable-history-heading strong,
+.receivable-notes-box p {
+  color: #111827 !important;
+}
+
+.receivable-detail-grid span,
+.receivable-payment-account span,
+.receivable-history-heading span,
+.receivable-notes-box span {
+  color: #6b7280 !important;
+}
+
+
+
+.receivable-payment-form input,
+.receivable-payment-form select,
+.receivable-payment-form textarea {
+  border-color: #d8dee8 !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+.receivable-payment-form input:focus,
+.receivable-payment-form select:focus,
+.receivable-payment-form textarea:focus {
+  border-color: #f4b400 !important;
+  box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.12) !important;
+}
+
+
+
+.receivable-notice,
+.receivable-notice.success,
+.receivable-notice.error {
+  border: 1px solid #f4b400 !important;
+  background: #fff8db !important;
+  color: #111827 !important;
+}
+
+.receivable-notice svg,
+.receivable-notice.success svg,
+.receivable-notice.error svg {
+  color: #111827 !important;
+  stroke: #111827 !important;
+}
+
+.receivable-notice strong {
+  color: #111827 !important;
+}
+
+.receivable-notice span {
+  color: #6b7280 !important;
+}
+
+
+
+.receivables-page .btn-primary {
+  border: 1px solid #f4b400 !important;
+  background: #f4b400 !important;
+  color: #111827 !important;
+}
+
+.receivables-page .btn-primary:hover:not(:disabled) {
+  background: #f7c948 !important;
+  border-color: #f7c948 !important;
+  color: #111827 !important;
+}
+
+.receivables-page .btn-secondary {
+  border: 1px solid #f4b400 !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
+.receivables-page .btn-secondary:hover:not(:disabled) {
+  background: #f4b400 !important;
+  border-color: #f4b400 !important;
+  color: #111827 !important;
+}
+
+
+@media print {
+  .receivable-modal,
+  .receivable-modal * {
+    color: #000000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .receivable-modal {
+    background: #ffffff !important;
+    border: 0 !important;
+  }
+
+  .receivable-detail-grid > div,
+  .receivable-notes-box,
+  .receivable-history-heading,
+  .receivable-payment-account {
+    background: #ffffff !important;
+    border-color: #000000 !important;
+  }
+}
+
+.receivables-table th:last-child,
+.receivables-table td:last-child {
+  text-align: center;
+}
+
+.receivables-table td:last-child .action-group,
+.receivables-table td:last-child .action-buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto;
+}
+
+
+.receivables-table td:last-child button {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.receivable-main-table th:last-child,
+.receivable-main-table td:last-child {
+  width: 145px !important;
+  min-width: 145px !important;
+  max-width: 145px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.receivable-main-table th:last-child {
+  text-align: center !important;
+}
+
+.receivable-main-table td:last-child .receivable-actions {
+  width: 100% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 8px !important;
+  margin: 0 auto !important;
+}
+
+.receivable-main-table
+  td:last-child
+  .receivable-actions
+  button {
+  flex: 0 0 34px !important;
+
+  width: 34px !important;
+  min-width: 34px !important;
+  height: 34px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.receivable-payment-receipt-shell {
+  width: 100%;
+  padding: 6px;
+  overflow-x: auto;
+}
+
+.receivable-payment-receipt-paper {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 26px 30px;
+  border: 1px solid #d9dee6;
+  background: #ffffff;
+  color: #111827;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 7px 22px rgba(15, 23, 42, 0.05);
+}
+
+.receivable-receipt-header {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) 170px;
+  gap: 12px;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #64748b;
+}
+
+.receivable-receipt-logo {
+  width: 50px;
+  height: 50px;
+  display: block;
+  object-fit: contain;
+}
+
+.receivable-receipt-brand h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.receivable-receipt-brand p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+.receivable-receipt-number {
+  min-width: 0;
+  text-align: right;
+}
+
+.receivable-receipt-number span,
+.receivable-receipt-number strong {
+  display: block;
+}
+
+.receivable-receipt-number span {
+  margin-bottom: 3px;
+  color: #64748b;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.receivable-receipt-number strong {
+  color: #111827;
+  font-size: 11px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.receivable-receipt-title {
+  margin: 15px 0 13px;
+  text-align: center;
+}
+
+.receivable-receipt-title h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.receivable-receipt-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+  margin-bottom: 12px;
+}
+
+.receivable-receipt-field {
+  min-width: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.receivable-receipt-field span {
+  flex: 0 0 auto;
+  color: #475569;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.receivable-receipt-field strong {
+  flex: 1;
+  min-width: 0;
+  min-height: 18px;
+  padding: 0 4px 3px;
+  border-bottom: 1px solid #94a3b8;
+  color: #111827;
+  font-size: 10px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.receivable-receipt-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-top: 1px solid #d4dbe4;
+  border-left: 1px solid #d4dbe4;
+  table-layout: fixed;
+}
+
+.receivable-receipt-table th,
+.receivable-receipt-table td {
+  padding: 8px 9px;
+  border: 0;
+  border-right: 1px solid #d4dbe4;
+  border-bottom: 1px solid #d4dbe4;
+  background: #ffffff;
+  color: #111827;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.receivable-receipt-table th {
+  background: #f8fafc;
+  color: #475569;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.receivable-receipt-table th:last-child,
+.receivable-receipt-table td:last-child {
+  width: 180px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.receivable-receipt-total-row td {
+  font-weight: 700;
+}
+
+.receivable-receipt-total-row td:first-child {
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.receivable-receipt-notes {
+  margin-top: 11px;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.receivable-receipt-notes span {
+  flex: 0 0 auto;
+  color: #475569;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.receivable-receipt-notes strong {
+  flex: 1;
+  min-height: 18px;
+  padding: 0 4px 3px;
+  border-bottom: 1px solid #94a3b8;
+  color: #111827;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.receivable-receipt-certification {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  color: #64748b;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.receivable-receipt-certification p {
+  margin: 0;
+}
+
+.receivable-receipt-signatures {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 42px;
+}
+
+.receivable-receipt-signature {
+  text-align: center;
+}
+
+.receivable-receipt-signature span {
+  display: block;
+  min-height: 20px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #475569;
+  color: #111827;
+  font-size: 9px;
+}
+
+.receivable-receipt-signature strong {
+  display: block;
+  margin-top: 4px;
+  color: #111827;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.receivable-receipt-footnote {
+  margin-top: 18px;
+  padding-top: 7px;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 8px;
+  text-align: center;
+}
+
+.receivable-payment-receipt-actions {
+  padding-top: 4px;
+}
+
+@media (max-width: 700px) {
+  .receivable-receipt-header {
+    grid-template-columns: 50px 1fr;
+  }
+
+  .receivable-receipt-number {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+
+  .receivable-receipt-fields,
+  .receivable-receipt-certification,
+  .receivable-receipt-signatures {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .receivable-payment-receipt-paper {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .receivable-receipt-table {
+    border-top: 0.45pt solid #cbd5e1 !important;
+    border-left: 0.45pt solid #cbd5e1 !important;
+  }
+
+  .receivable-receipt-table th,
+  .receivable-receipt-table td {
+    border-right: 0.45pt solid #cbd5e1 !important;
+    border-bottom: 0.45pt solid #cbd5e1 !important;
+  }
+}
+
+
+.receivable-detail-document {
+  width: 100%;
+}
+
+.receivable-detail-document-header {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) 155px;
+  gap: 12px;
+  align-items: center;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #64748b;
+}
+
+.receivable-detail-document-header img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.receivable-detail-document-header h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.receivable-detail-document-header p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 9px;
+}
+
+.receivable-detail-reference {
+  text-align: right;
+}
+
+.receivable-detail-reference span,
+.receivable-detail-reference strong {
+  display: block;
+}
+
+.receivable-detail-reference span {
+  margin-bottom: 3px;
+  color: #64748b;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.receivable-detail-reference strong {
+  color: #111827;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.receivable-detail-title {
+  margin: 15px 0 12px;
+}
+
+.receivable-detail-title h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.receivable-detail-title p {
+  margin: 3px 0 0;
+  color: #64748b;
+  font-size: 10px;
+}
+
+.receivable-detail-form-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-top: 1px solid #d4dbe4;
+  border-left: 1px solid #d4dbe4;
+  table-layout: fixed;
+  background: #ffffff;
+}
+
+.receivable-detail-form-table th,
+.receivable-detail-form-table td {
+  min-height: 38px;
+  padding: 9px 10px;
+  border: 0;
+  border-right: 1px solid #d4dbe4;
+  border-bottom: 1px solid #d4dbe4;
+  background: #ffffff;
+  vertical-align: middle;
+}
+
+.receivable-detail-form-table th {
+  width: 18%;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 9px;
+  font-weight: 800;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.receivable-detail-form-table td {
+  width: 32%;
+  color: #111827;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.receivable-detail-form-table .receivable-status {
+  min-height: 22px !important;
+  padding: 0 8px !important;
+  font-size: 9px !important;
+}
+
+.receivable-detail-balance-value {
+  font-weight: 800 !important;
+}
+
+.receivable-detail-notes-line {
+  margin-top: 12px;
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+}
+
+.receivable-detail-notes-line span {
+  flex: 0 0 auto;
+  color: #64748b;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.receivable-detail-notes-line strong {
+  flex: 1;
+  min-height: 20px;
+  padding: 0 4px 3px;
+  border-bottom: 1px solid #94a3b8;
+  color: #111827;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.receivable-detail-summary-line {
+  margin-top: 12px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid #d4dbe4;
+  background: #ffffff;
+}
+
+.receivable-detail-summary-line span {
+  color: #64748b;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.receivable-detail-summary-line strong {
+  color: #111827;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.receivable-detail-actions {
+  margin-top: 14px !important;
+}
+
+
+.receivable-payment-receipt-document-shell {
+  padding: 0 !important;
+}
+
+.receivable-payment-receipt-paper {
+  border-radius: 0 !important;
+}
+
+.receivable-payment-receipt-actions {
+  margin-top: 12px !important;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.receivable-modal.wide .receivable-payment-receipt-paper {
+  max-width: 760px;
+}
+
+@media (max-width: 700px) {
+  .receivable-detail-document-header {
+    grid-template-columns: 46px 1fr;
+  }
+
+  .receivable-detail-reference {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+
+  .receivable-detail-form-table {
+    table-layout: auto;
+  }
+
+  .receivable-detail-summary-line {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+
+
+.receivables-page,
+.receivables-page button,
+.receivables-page input,
+.receivables-page select,
+.receivables-page textarea,
+.receivables-page table {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.receivables-heading h1 {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.receivables-heading span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.receivables-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+.receivable-summary-card p {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.receivable-summary-card strong {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.receivable-summary-card small {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+
+.receivable-search input,
+.receivable-toolbar select,
+.receivable-payment-form input,
+.receivable-payment-form select,
+.receivable-payment-form textarea {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+.receivable-table th {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.receivable-table td {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.receivable-table td strong {
+  font-weight: 600;
+}
+
+.receivable-table td small,
+.receivable-status {
+  font-size: 10px;
+}
+
+.receivable-status {
+  font-weight: 700;
+}
+
+.receivable-table .balance-cell {
+  font-weight: 700;
+}
+
+
+.receivable-notice strong {
+  font-weight: 700;
+}
+
+.receivable-notice span {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+.receivable-modal-header h2 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+.receivable-detail-grid span,
+.receivable-payment-account span,
+.receivable-history-heading span,
+.receivable-notes-box span,
+.receivable-payment-form label > span {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+.receivable-detail-grid strong,
+.receivable-notes-box p {
+  font-size: 13px;
+}
+
+.receivable-detail-grid strong {
+  font-weight: 600;
+}
+
+.receivable-notes-box p {
+  font-weight: 400;
+}
+
+.receivable-payment-account strong,
+.receivable-history-heading strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+.receivable-payment-receipt-paper,
+.receivable-payment-receipt-paper *,
+.receivable-detail-document,
+.receivable-detail-document * {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.receivables-page,
+.receivables-page button,
+.receivables-page input,
+.receivables-page select,
+.receivables-page textarea,
+.receivables-page table {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.receivables-heading h1 {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.receivables-heading span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.receivable-summary-card p {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.receivable-summary-card strong {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.receivable-summary-card small {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.receivables-heading > button,
+.receivables-heading .refresh-btn {
+  min-height: 40px;
+  padding: 0 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--gold);
+  color: var(--dark);
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.receivables-heading > button:hover:not(:disabled),
+.receivables-heading .refresh-btn:hover:not(:disabled) {
+  border-color: var(--gold-hover);
+  background: var(--gold-hover);
+  color: var(--dark);
+  transform: translateY(-1px);
+}
+
+.receivables-heading > button svg,
+.receivables-heading .refresh-btn svg {
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+.receivable-detail-actions {
+  width: 100% !important;
+  margin-top: 18px !important;
+  padding: 16px 0 2px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  border-top: 1px solid #e5e7eb !important;
+}
+
+.receivable-detail-actions .btn {
+  min-width: 170px !important;
+  min-height: 40px !important;
+  padding: 0 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  border-radius: 9px !important;
+  white-space: nowrap !important;
+}
+
+.receivable-detail-actions .btn svg {
+  flex: 0 0 auto !important;
+}
+
+@media (max-width: 700px) {
+  .receivable-detail-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .receivable-detail-actions .btn {
+    width: 100% !important;
+  }
+}
+
+.receivable-modal-footer,
+.receivable-payment-receipt-actions {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+}
+
+.receivable-modal-footer {
+  margin-top: 18px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid #e5e7eb !important;
+}
+
+.receivable-payment-receipt-actions {
+  margin-top: 12px !important;
+  padding-top: 14px !important;
+  border-top: 1px solid #e5e7eb !important;
+}
+
+.receivable-modal-footer .btn,
+.receivable-payment-receipt-actions .btn {
+  min-height: 40px !important;
+  height: 40px !important;
+  min-width: 118px !important;
+  padding: 0 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  border-radius: 9px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.receivable-modal-footer .btn-primary,
+.receivable-payment-receipt-actions .btn-primary {
+  min-width: 150px !important;
+}
+
+.receivable-modal-footer .btn svg,
+.receivable-payment-receipt-actions .btn svg {
+  flex: 0 0 auto !important;
+}
+
+@media (max-width: 700px) {
+  .receivable-modal-footer,
+  .receivable-payment-receipt-actions {
+    flex-direction: column-reverse !important;
+    align-items: stretch !important;
+  }
+
+  .receivable-modal-footer .btn,
+  .receivable-payment-receipt-actions .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+

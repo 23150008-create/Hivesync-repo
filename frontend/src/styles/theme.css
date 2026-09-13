@@ -1,0 +1,22 @@
+:root {
+  --gold: #f4b400;
+  --gold-hover: #dca200;
+
+  --dark: #1b2430;
+  --dark-hover: #111827;
+
+  --white: #ffffff;
+
+  --text: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #94a3b8;
+
+  --border: #e5e7eb;
+  --background: #f5f7fa;
+
+  --success: #16a34a;
+  --danger: #dc2626;
+
+  --radius: 10px;
+  --transition: 0.18s ease;
+}

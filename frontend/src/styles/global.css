@@ -1,0 +1,160 @@
+:root {
+  --primary-gold: #f4b400;
+  --gold: #f4b400;
+  --hover-gold: #f7c948;
+  --gold-hover: #f7c948;
+
+  --dark-sidebar: #1b2430;
+  --dark: #1b2430;
+  --secondary-dark: #243447;
+  --dark-hover: #243447;
+
+  --background: #f5f7fa;
+  --card-bg: #ffffff;
+  --white: #ffffff;
+
+  --text: #111827;
+  --secondary-text: #6b7280;
+
+  --success: #16a34a;
+  --warning: #f4b400;
+  --danger: #dc2626;
+  --border: #e5e7eb;
+
+  --font-main: "Segoe UI", Arial, Helvetica, sans-serif;
+
+  --fs-display: 30px;
+  --fs-page-title: 24px;
+  --fs-section-title: 18px;
+  --fs-card-title: 16px;
+  --fs-body: 14px;
+  --fs-small: 13px;
+  --fs-caption: 12px;
+  --fs-table: 12px;
+  --fs-table-head: 10px;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 700;
+  --fw-bold: 800;
+  --fw-heavy: 900;
+
+  --radius-card: 16px;
+  --radius-input: 10px;
+  --radius: 10px;
+
+  --shadow-card: 0 8px 24px rgba(15, 23, 42, 0.05);
+  --transition: 0.18s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-main);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  line-height: 1.45;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-main);
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: var(--fs-page-title);
+  font-weight: var(--fw-heavy);
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: var(--fs-section-title);
+  font-weight: var(--fw-bold);
+}
+
+h3 {
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-bold);
+}
+
+p {
+  color: var(--secondary-text);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+}
+
+/* Shared enterprise surfaces */
+.hivesync-card,
+.table-card,
+.module-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--card-bg);
+}
+
+/* Shared page-title rhythm */
+.page-header,
+.supplier-page-header,
+.delivery-page-header,
+.inventory-page-header,
+.pos-title-row,
+.reports-page-heading {
+  margin-bottom: 18px;
+}
+
+.page-header h1,
+.supplier-page-header h1,
+.delivery-page-header h1,
+.inventory-page-header h1,
+.pos-title-row h1,
+.reports-page-heading h1 {
+  margin: 0 0 5px;
+  color: var(--text);
+  font-size: var(--fs-page-title);
+  font-weight: var(--fw-heavy);
+  letter-spacing: -0.025em;
+}
+
+.page-header p,
+.page-header span,
+.supplier-page-header p,
+.delivery-page-header p,
+.inventory-page-header p,
+.pos-title-row p,
+.reports-page-heading p {
+  margin: 0;
+  color: var(--secondary-text);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+}

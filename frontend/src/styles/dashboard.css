@@ -1,0 +1,1227 @@
+:root {
+  --dashboard-gold: #f4b400;
+  --dashboard-dark: #1b2430;
+  --dashboard-white: #ffffff;
+  --dashboard-text: #111827;
+  --dashboard-muted: #6b7280;
+  --dashboard-border: #e5e7eb;
+  --dashboard-bg: #f5f7fa;
+  --dashboard-soft-gold: #fff8df;
+}
+
+.dashboard-content-shell {
+  position: relative;
+  z-index: 1;
+  padding: 18px 20px 26px;
+  overflow: visible;
+  color: var(--dashboard-text);
+}
+
+.dashboard-topbar {
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.dashboard-topbar h1 {
+  margin: 0;
+  color: var(--dashboard-text);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.dashboard-filter-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dashboard-preset-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dashboard-filter-button,
+.dashboard-refresh-button {
+  height: 36px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid var(--dashboard-border);
+  border-radius: 9px;
+  background: var(--dashboard-white);
+  color: var(--dashboard-text);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.dashboard-filter-button:hover,
+.dashboard-refresh-button:hover:not(:disabled) {
+  border-color: var(--dashboard-gold);
+  background: var(--dashboard-soft-gold);
+}
+
+.dashboard-refresh-button {
+  border-color: var(--dashboard-gold);
+  background: var(--dashboard-gold);
+  color: var(--dashboard-dark);
+}
+
+.dashboard-refresh-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.dashboard-date-controls {
+  height: 36px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--dashboard-border);
+  border-radius: 9px;
+  background: var(--dashboard-white);
+}
+
+.dashboard-date-controls svg {
+  flex: 0 0 auto;
+  color: var(--dashboard-gold);
+}
+
+.dashboard-date-controls input {
+  width: 112px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--dashboard-text);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.dashboard-date-controls span {
+  color: var(--dashboard-muted);
+  font-size: 10px;
+}
+
+.refresh-spin {
+  animation: refreshSpin 0.85s linear infinite;
+}
+
+@keyframes refreshSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* KPI CARDS */
+
+.dashboard-kpi-grid {
+  margin-bottom: 14px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.dashboard-metric-card {
+  min-width: 0;
+  min-height: 94px;
+  padding: 14px;
+  border: 1px solid var(--dashboard-border);
+  border-radius: 12px;
+  background: var(--dashboard-white);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.035);
+}
+
+.dashboard-metric-top {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashboard-metric-icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--dashboard-soft-gold);
+  color: var(--dashboard-gold);
+}
+
+.dashboard-metric-top > span {
+  min-width: 0;
+  color: var(--dashboard-text);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.dashboard-metric-card > strong {
+  display: block;
+  margin-top: 11px;
+  overflow: hidden;
+  color: var(--dashboard-text);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* MAIN CARDS */
+
+.dashboard-card {
+  min-width: 0;
+  border: 1px solid var(--dashboard-border);
+  border-radius: 12px;
+  background: var(--dashboard-white);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+}
+
+.dashboard-card-heading {
+  min-height: 48px;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #eef0f2;
+}
+
+.dashboard-card-heading h2 {
+  margin: 0;
+  color: var(--dashboard-text);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.dashboard-period-label {
+  padding: 6px 8px;
+  border: 1px solid var(--dashboard-border);
+  border-radius: 7px;
+  color: var(--dashboard-muted);
+  font-size: 9px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dashboard-analytics-grid {
+  margin-bottom: 14px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  gap: 12px;
+}
+
+.dashboard-sales-card,
+.dashboard-breakdown-card {
+  min-height: 330px;
+}
+
+.dashboard-chart-area {
+  height: 270px;
+  padding: 2px 14px 12px 8px;
+  position: relative;
+}
+
+.dashboard-chart-legend {
+  height: 30px;
+  padding-left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--dashboard-muted);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.dashboard-chart-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.legend-gold {
+  background: var(--dashboard-gold);
+}
+
+.legend-dark {
+  background: var(--dashboard-dark);
+}
+
+/* DONUT */
+
+.dashboard-breakdown-layout {
+  height: 280px;
+  padding: 18px 18px 16px;
+  display: grid;
+  grid-template-columns: minmax(180px, 0.9fr) minmax(210px, 1.1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.dashboard-donut-wrap {
+  width: 100%;
+  height: 220px;
+  position: relative;
+}
+
+.dashboard-donut-center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  pointer-events: none;
+}
+
+.dashboard-donut-center strong {
+  color: var(--dashboard-text);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.dashboard-donut-center span {
+  margin-top: 3px;
+  color: var(--dashboard-muted);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.dashboard-breakdown-list {
+  display: grid;
+  gap: 14px;
+}
+
+.dashboard-breakdown-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashboard-breakdown-row > div {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breakdown-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+}
+
+.dashboard-breakdown-row span,
+.dashboard-breakdown-row strong,
+.dashboard-breakdown-row small {
+  font-size: 10px;
+}
+
+.dashboard-breakdown-row span {
+  color: var(--dashboard-text);
+  font-weight: 600;
+}
+
+.dashboard-breakdown-row strong {
+  color: var(--dashboard-text);
+  font-weight: 800;
+}
+
+.dashboard-breakdown-row small {
+  width: 42px;
+  color: var(--dashboard-muted);
+  font-weight: 500;
+  text-align: right;
+}
+
+/* LOWER SECTION */
+
+.dashboard-bottom-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.72fr) minmax(260px, 0.78fr) minmax(520px, 1.7fr);
+  gap: 12px;
+}
+
+.dashboard-suppliers-card,
+.dashboard-products-card,
+.dashboard-transactions-card {
+  min-height: 265px;
+}
+
+.dashboard-supplier-list {
+  padding: 14px 16px 16px;
+  display: grid;
+  gap: 15px;
+}
+
+.dashboard-supplier-row {
+  min-width: 0;
+}
+
+.dashboard-supplier-name {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.dashboard-supplier-name strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--dashboard-text);
+  font-size: 10px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-supplier-name span {
+  color: var(--dashboard-text);
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.dashboard-progress-track {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #eef0f2;
+}
+
+.dashboard-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--dashboard-gold);
+}
+
+.dashboard-product-list {
+  padding: 8px 14px 12px;
+  display: grid;
+}
+
+.dashboard-product-row {
+  min-width: 0;
+  min-height: 42px;
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  border-bottom: 1px solid #eef0f2;
+}
+
+.dashboard-product-row:last-child {
+  border-bottom: 0;
+}
+
+.dashboard-product-rank {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--dashboard-gold);
+  color: var(--dashboard-dark);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.dashboard-product-info {
+  min-width: 0;
+}
+
+.dashboard-product-info strong {
+  display: block;
+  overflow: hidden;
+  color: var(--dashboard-text);
+  font-size: 10px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-product-info span {
+  display: block;
+  margin-top: 2px;
+  color: var(--dashboard-muted);
+  font-size: 8px;
+  font-weight: 500;
+}
+
+.dashboard-product-sales {
+  color: var(--dashboard-text);
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.dashboard-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.dashboard-transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.dashboard-transactions-table th,
+.dashboard-transactions-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eef0f2;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.dashboard-transactions-table th {
+  color: var(--dashboard-muted);
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+}
+
+.dashboard-transactions-table td {
+  overflow: hidden;
+  color: var(--dashboard-text);
+  font-size: 9px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-transactions-table th:nth-child(1),
+.dashboard-transactions-table td:nth-child(1) {
+  width: 18%;
+}
+
+.dashboard-transactions-table th:nth-child(2),
+.dashboard-transactions-table td:nth-child(2) {
+  width: 10%;
+}
+
+.dashboard-transactions-table th:nth-child(3),
+.dashboard-transactions-table td:nth-child(3) {
+  width: 17%;
+}
+
+.dashboard-transactions-table th:nth-child(4),
+.dashboard-transactions-table td:nth-child(4) {
+  width: 22%;
+}
+
+.dashboard-transactions-table th:nth-child(5),
+.dashboard-transactions-table td:nth-child(5) {
+  width: 15%;
+  font-weight: 800;
+}
+
+.dashboard-transactions-table th:nth-child(6),
+.dashboard-transactions-table td:nth-child(6) {
+  width: 18%;
+}
+
+.dashboard-status-badge {
+  max-width: 100%;
+  padding: 4px 7px;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 8px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-status-badge.is-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.dashboard-status-badge.is-pending {
+  background: #fff4cc;
+  color: #7a5800;
+}
+
+.dashboard-status-badge.is-danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.dashboard-status-badge.is-neutral {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.dashboard-empty-state {
+  min-height: 190px;
+  padding: 20px;
+  display: grid;
+  place-items: center;
+  color: var(--dashboard-muted);
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.dashboard-footer-note {
+  padding: 15px 0 2px;
+  color: #9ca3af;
+  font-size: 9px;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1500px) {
+  .dashboard-kpi-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1180px) {
+  .dashboard-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-filter-controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .dashboard-analytics-grid,
+  .dashboard-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-breakdown-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .dashboard-content-shell {
+    padding: 14px;
+  }
+
+  .dashboard-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-filter-controls,
+  .dashboard-preset-buttons {
+    width: 100%;
+  }
+
+  .dashboard-filter-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .dashboard-preset-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .dashboard-date-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dashboard-date-controls input {
+    width: 42%;
+  }
+
+  .dashboard-refresh-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .dashboard-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-breakdown-layout {
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-donut-wrap {
+    height: 200px;
+  }
+
+  .dashboard-transactions-table {
+    min-width: 720px;
+  }
+}
+
+
+/* Force-remove legacy KPI decorative mini chart */
+.dashboard-metric-sparkline,
+.clean-kpi-sparkline,
+.kpi-sparkline,
+.metric-sparkline {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* =========================================================
+   HIVESYNC TYPOGRAPHY NORMALIZATION
+   FONT PROPERTIES ONLY — NO LAYOUT CHANGES
+   ========================================================= */
+
+.dashboard-content-shell,
+.dashboard-content-shell button,
+.dashboard-content-shell input,
+.dashboard-content-shell select,
+.dashboard-content-shell textarea,
+.dashboard-content-shell table {
+  font-family: "Segoe UI", Inter, Arial, sans-serif;
+}
+
+.dashboard-topbar h1 {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.dashboard-filter-button,
+.dashboard-refresh-button {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dashboard-date-controls input,
+.dashboard-date-controls span {
+  font-size: 12px;
+}
+
+.dashboard-date-controls input {
+  font-weight: 500;
+}
+
+.dashboard-metric-top > span {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.dashboard-metric-card > strong,
+.dashboard-donut-center strong {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.dashboard-card-heading h2 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.dashboard-period-label,
+.dashboard-chart-legend,
+.dashboard-donut-center span,
+.dashboard-product-rank {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.dashboard-breakdown-row span,
+.dashboard-breakdown-row strong,
+.dashboard-breakdown-row small,
+.dashboard-supplier-name strong,
+.dashboard-supplier-name span,
+.dashboard-product-info strong,
+.dashboard-product-info span {
+  font-size: 12px;
+}
+
+.dashboard-breakdown-row span,
+.dashboard-supplier-name strong,
+.dashboard-product-info strong {
+  font-weight: 600;
+}
+
+.dashboard-breakdown-row strong,
+.dashboard-supplier-name span {
+  font-weight: 700;
+}
+
+.dashboard-breakdown-row small,
+.dashboard-product-info span {
+  font-weight: 400;
+}
+
+/* =========================================================
+   HIVESYNC TABLE TYPOGRAPHY — RECEIVABLES MASTER STYLE
+   FONT PROPERTIES ONLY — NO LAYOUT CHANGES
+   ========================================================= */
+.dashboard-content-shell,
+.dashboard-content-shell button,
+.dashboard-content-shell input,
+.dashboard-content-shell select,
+.dashboard-content-shell textarea,
+.dashboard-content-shell table {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.dashboard-transactions-table th {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+.dashboard-transactions-table td {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+}
+
+.dashboard-transactions-table td strong {
+  font-weight: 600 !important;
+}
+
+.dashboard-transactions-table td small {
+  font-size: 10px !important;
+  font-weight: 400 !important;
+}
+
+.dashboard-status-badge {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+}
+
+/* =========================================================
+   HIVESYNC FINAL DASHBOARD TYPOGRAPHY — EXACT RECEIVABLES STYLE
+   FONT PROPERTIES ONLY — NO LAYOUT CHANGES
+   ========================================================= */
+
+.dashboard-content-shell,
+.dashboard-content-shell button,
+.dashboard-content-shell input,
+.dashboard-content-shell select,
+.dashboard-content-shell textarea,
+.dashboard-content-shell table {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* Page title */
+.dashboard-topbar h1 {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+}
+
+/* Header controls */
+.dashboard-filter-button,
+.dashboard-refresh-button {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+.dashboard-date-controls input,
+.dashboard-date-controls span {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+}
+
+/* KPI cards — exact Receivables weight */
+.dashboard-metric-top > span {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+.dashboard-metric-card > strong {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+}
+
+/* Section titles */
+.dashboard-card-heading h2 {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+
+/* Small section/helper text */
+.dashboard-period-label,
+.dashboard-chart-legend,
+.dashboard-donut-center span,
+.dashboard-product-rank {
+  font-size: 10px !important;
+  font-weight: 500 !important;
+}
+
+/* Donut / breakdown */
+.dashboard-donut-center strong {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+}
+
+.dashboard-breakdown-row span,
+.dashboard-breakdown-row strong,
+.dashboard-breakdown-row small {
+  font-size: 12px !important;
+}
+
+.dashboard-breakdown-row span {
+  font-weight: 400 !important;
+}
+
+.dashboard-breakdown-row strong {
+  font-weight: 600 !important;
+}
+
+.dashboard-breakdown-row small {
+  font-size: 10px !important;
+  font-weight: 400 !important;
+}
+
+/* Supplier / product lists */
+.dashboard-supplier-name strong,
+.dashboard-product-info strong {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.dashboard-supplier-name span,
+.dashboard-product-sales {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+.dashboard-product-info span {
+  font-size: 10px !important;
+  font-weight: 400 !important;
+}
+
+/* Transaction table — exact Receivables table style */
+.dashboard-transactions-table th {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+.dashboard-transactions-table td {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+}
+
+.dashboard-transactions-table td strong,
+.dashboard-transactions-table td:nth-child(5) {
+  font-weight: 600 !important;
+}
+
+.dashboard-status-badge {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+}
+
+/* Empty state / footer helper */
+.dashboard-empty-state,
+.dashboard-footer-note {
+  font-size: 10px !important;
+  font-weight: 400 !important;
+}
+
+.dashboard-metric-card.has-remittance-hover {
+  position: relative;
+  z-index: 20;
+  cursor: default;
+  overflow: visible;
+}
+
+.dashboard-metric-card.has-remittance-hover:hover,
+.dashboard-metric-card.has-remittance-hover:focus-within {
+  border-color: var(--dashboard-gold);
+}
+
+.dashboard-remittance-hover {
+  width: 310px;
+  max-height: 300px;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 1000;
+  padding: 12px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  border: 1px solid var(--dashboard-border);
+  border-radius: 10px;
+  background: var(--dashboard-white);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.16);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+}
+
+.dashboard-metric-card.has-remittance-hover:hover .dashboard-remittance-hover,
+.dashboard-metric-card.has-remittance-hover:focus-within .dashboard-remittance-hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dashboard-remittance-hover-title {
+  padding: 2px 2px 9px;
+  border-bottom: 1px solid var(--dashboard-border);
+  color: var(--dashboard-text);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.dashboard-remittance-hover-list {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.dashboard-remittance-hover-row {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 2px;
+  border-bottom: 1px solid #eef0f2;
+}
+
+.dashboard-remittance-hover-row:last-child {
+  border-bottom: 0;
+}
+
+.dashboard-remittance-hover-row span {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--dashboard-text);
+  font-size: 10px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-remittance-hover-row strong {
+  flex: 0 0 auto;
+  color: var(--dashboard-text);
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.dashboard-remittance-hover-empty {
+  padding: 16px 4px 6px;
+  color: var(--dashboard-muted);
+  font-size: 10px;
+  text-align: center;
+}
+
+.dashboard-metric-card {
+  position: relative;
+  isolation: isolate;
+  cursor: pointer;
+  overflow: visible;
+  transform: translateY(0) scale(1);
+  transform-origin: center;
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.dashboard-metric-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  background:
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(244, 180, 0, 0.18),
+      transparent 42%
+    );
+  transition: opacity 0.22s ease;
+  pointer-events: none;
+}
+
+.dashboard-metric-card:hover,
+.dashboard-metric-card:focus-visible,
+.dashboard-metric-card:focus-within {
+  z-index: 30;
+  transform: translateY(-5px) scale(1.018);
+  border-color: rgba(244, 180, 0, 0.85);
+  background: #fffef9;
+  box-shadow:
+    0 16px 28px rgba(15, 23, 42, 0.11),
+    0 0 0 3px rgba(244, 180, 0, 0.08);
+  outline: none;
+}
+
+.dashboard-metric-card:hover::before,
+.dashboard-metric-card:focus-visible::before,
+.dashboard-metric-card:focus-within::before {
+  opacity: 1;
+}
+
+.dashboard-metric-icon {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.dashboard-metric-card:hover .dashboard-metric-icon,
+.dashboard-metric-card:focus-visible .dashboard-metric-icon,
+.dashboard-metric-card:focus-within .dashboard-metric-icon {
+  transform: translateY(-2px) rotate(-5deg) scale(1.12);
+  background: #fff1b9;
+  box-shadow: 0 7px 16px rgba(244, 180, 0, 0.2);
+}
+
+.dashboard-metric-card > strong {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.22s ease;
+}
+
+.dashboard-metric-card:hover > strong,
+.dashboard-metric-card:focus-visible > strong,
+.dashboard-metric-card:focus-within > strong {
+  transform: translateX(3px);
+  color: #0f172a;
+}
+
+.dashboard-metric-top > span {
+  transition:
+    transform 0.22s ease,
+    color 0.22s ease;
+}
+
+.dashboard-metric-card:hover .dashboard-metric-top > span,
+.dashboard-metric-card:focus-visible .dashboard-metric-top > span,
+.dashboard-metric-card:focus-within .dashboard-metric-top > span {
+  transform: translateX(2px);
+  color: #0f172a;
+}
+
+.dashboard-remittance-hover {
+  transform: translateY(-8px) scale(0.96);
+  transform-origin: top left;
+  transition:
+    opacity 0.2s ease,
+    transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.2s ease;
+}
+
+.dashboard-metric-card.has-remittance-hover:hover .dashboard-remittance-hover,
+.dashboard-metric-card.has-remittance-hover:focus-visible .dashboard-remittance-hover,
+.dashboard-metric-card.has-remittance-hover:focus-within .dashboard-remittance-hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.dashboard-remittance-hover-row {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+.dashboard-metric-card.has-remittance-hover:hover .dashboard-remittance-hover-row,
+.dashboard-metric-card.has-remittance-hover:focus-visible .dashboard-remittance-hover-row,
+.dashboard-metric-card.has-remittance-hover:focus-within .dashboard-remittance-hover-row {
+  animation: dashboardRemittanceRowIn 0.28s ease forwards;
+}
+
+.dashboard-metric-card.has-remittance-hover:hover .dashboard-remittance-hover-row:nth-child(1),
+.dashboard-metric-card.has-remittance-hover:focus-visible .dashboard-remittance-hover-row:nth-child(1),
+.dashboard-metric-card.has-remittance-hover:focus-within .dashboard-remittance-hover-row:nth-child(1) {
+  animation-delay: 0.03s;
+}
+
+.dashboard-metric-card.has-remittance-hover:hover .dashboard-remittance-hover-row:nth-child(2),
+.dashboard-metric-card.has-remittance-hover:focus-visible .dashboard-remittance-hover-row:nth-child(2),
+.dashboard-metric-card.has-remittance-hover:focus-within .dashboard-remittance-hover-row:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.dashboard-metric-card.has-remittance-hover:hover .dashboard-remittance-hover-row:nth-child(3),
+.dashboard-metric-card.has-remittance-hover:focus-visible .dashboard-remittance-hover-row:nth-child(3),
+.dashboard-metric-card.has-remittance-hover:focus-within .dashboard-remittance-hover-row:nth-child(3) {
+  animation-delay: 0.09s;
+}
+
+.dashboard-metric-card.has-remittance-hover:hover .dashboard-remittance-hover-row:nth-child(4),
+.dashboard-metric-card.has-remittance-hover:focus-visible .dashboard-remittance-hover-row:nth-child(4),
+.dashboard-metric-card.has-remittance-hover:focus-within .dashboard-remittance-hover-row:nth-child(4) {
+  animation-delay: 0.12s;
+}
+
+.dashboard-metric-card.has-remittance-hover:hover .dashboard-remittance-hover-row:nth-child(n+5),
+.dashboard-metric-card.has-remittance-hover:focus-visible .dashboard-remittance-hover-row:nth-child(n+5),
+.dashboard-metric-card.has-remittance-hover:focus-within .dashboard-remittance-hover-row:nth-child(n+5) {
+  animation-delay: 0.15s;
+}
+
+@keyframes dashboardRemittanceRowIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-metric-card,
+  .dashboard-metric-icon,
+  .dashboard-metric-card > strong,
+  .dashboard-metric-top > span,
+  .dashboard-remittance-hover,
+  .dashboard-remittance-hover-row {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .dashboard-remittance-hover-row {
+    opacity: 1;
+  }
+}
+

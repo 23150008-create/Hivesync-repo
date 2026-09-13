@@ -1,0 +1,400 @@
+:root {
+  --sidebar-gold: #f4b400;
+  --sidebar-dark: #1b2430;
+  --sidebar-white: #ffffff;
+  --sidebar-text: #111827;
+  --sidebar-border: #e5e7eb;
+  --sidebar-muted: #6b7280;
+}
+
+/* =====================================================
+   SIDEBAR CONTAINER
+===================================================== */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+
+  width: 250px;
+  min-width: 250px;
+  height: 100vh;
+
+  padding: 18px 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-right: 1px solid var(--sidebar-border);
+
+  background: var(--sidebar-white);
+  color: var(--sidebar-text);
+}
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.sidebar-brand {
+  min-height: 66px;
+  padding: 8px 10px 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border-bottom: 1px solid var(--sidebar-border);
+}
+
+.sidebar-logo {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--sidebar-border);
+  border-radius: 12px;
+
+  background: var(--sidebar-white);
+}
+
+.sidebar-logo img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.sidebar-brand-text h3 {
+  margin: 0;
+
+  color: var(--sidebar-text);
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.sidebar-brand-text p {
+  margin: 4px 0 0;
+
+  color: var(--sidebar-muted);
+
+  font-size: 11px;
+  font-weight: 400;
+}
+
+/* =====================================================
+   NAVIGATION LABEL
+===================================================== */
+
+.sidebar-section-label {
+  padding: 18px 12px 8px;
+
+  color: var(--sidebar-muted);
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   NAVIGATION MENU
+===================================================== */
+
+.sidebar-menu {
+  display: grid;
+  gap: 6px;
+}
+
+/* =====================================================
+   NAVIGATION ITEM
+===================================================== */
+
+.sidebar-item {
+  position: relative;
+
+  width: 100%;
+  min-height: 46px;
+
+  padding: 0 13px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  background: transparent;
+  color: var(--sidebar-text);
+
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+/* Navigation hover */
+.sidebar-item:hover:not(:disabled):not(.active) {
+  border-color: var(--sidebar-gold);
+  background: #fffaf0;
+  color: var(--sidebar-text);
+}
+
+/* =====================================================
+   ACTIVE NAVIGATION ITEM
+===================================================== */
+
+.sidebar-item.active {
+  border-color: var(--sidebar-gold);
+
+  background: var(--sidebar-gold);
+  color: var(--sidebar-dark);
+
+  font-weight: 700;
+}
+
+.sidebar-item.active::before {
+  content: "";
+
+  position: absolute;
+  left: -1px;
+  top: 9px;
+  bottom: 9px;
+
+  width: 3px;
+
+  border-radius: 0 3px 3px 0;
+
+  background: var(--sidebar-dark);
+}
+
+/* Keep active item stable on hover */
+.sidebar-item.active:hover:not(:disabled) {
+  border-color: var(--sidebar-gold);
+  background: var(--sidebar-gold);
+  color: var(--sidebar-dark);
+}
+
+/* =====================================================
+   NAVIGATION ICONS
+===================================================== */
+
+.sidebar-item-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+
+  display: grid;
+  place-items: center;
+
+  color: inherit;
+}
+
+.sidebar-item-icon svg {
+  color: inherit;
+  stroke: currentColor;
+}
+
+/* =====================================================
+   DISABLED NAVIGATION
+===================================================== */
+
+.sidebar-item:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   SALES / LANDING PAGE ITEM
+===================================================== */
+
+.sidebar-sales-landing {
+  border: 1px solid rgba(244, 180, 0, 0.34);
+}
+
+.sidebar-sales-landing:hover:not(:disabled):not(.active) {
+  border-color: var(--sidebar-gold);
+  background: #fffaf0;
+}
+
+/* =====================================================
+   SIDEBAR FOOTER
+===================================================== */
+
+.sidebar-footer {
+  margin-top: auto;
+
+  padding-top: 16px;
+
+  border-top: 1px solid var(--sidebar-border);
+}
+
+/* =====================================================
+   LOGOUT BUTTON
+===================================================== */
+
+.sidebar-logout {
+  width: 100%;
+  min-height: 44px;
+
+  padding: 0 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: 1px solid var(--sidebar-border);
+  border-radius: 10px;
+
+  background: var(--sidebar-white);
+  color: var(--sidebar-text);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+/* Logout icon */
+.sidebar-logout svg {
+  flex-shrink: 0;
+
+  color: var(--sidebar-text);
+  stroke: currentColor;
+
+  transition:
+    color 0.18s ease,
+    stroke 0.18s ease;
+}
+
+/* =====================================================
+   LOGOUT HOVER
+===================================================== */
+
+.sidebar-logout:hover:not(:disabled) {
+  background: var(--sidebar-gold) !important;
+  border-color: var(--sidebar-gold) !important;
+
+  color: var(--sidebar-dark) !important;
+}
+
+.sidebar-logout:hover:not(:disabled) svg {
+  color: var(--sidebar-dark) !important;
+  stroke: currentColor !important;
+}
+
+/* =====================================================
+   LOGOUT ACTIVE / CLICK
+===================================================== */
+
+.sidebar-logout:active:not(:disabled) {
+  background: var(--sidebar-gold) !important;
+  border-color: var(--sidebar-gold) !important;
+
+  color: var(--sidebar-dark) !important;
+
+  transform: scale(0.98);
+}
+
+.sidebar-logout:active:not(:disabled) svg {
+  color: var(--sidebar-dark) !important;
+  stroke: currentColor !important;
+}
+
+/* =====================================================
+   LOGOUT FOCUS
+===================================================== */
+
+.sidebar-logout:focus-visible {
+  outline: 2px solid var(--sidebar-gold);
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   LOGOUT DISABLED
+===================================================== */
+
+.sidebar-logout:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* =====================================================
+   LOADING SPINNER
+===================================================== */
+
+.spin {
+  animation: sidebarSpin 0.85s linear infinite;
+}
+
+@keyframes sidebarSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =====================================================
+   RESPONSIVE SIDEBAR
+===================================================== */
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+    height: auto;
+
+    padding: 12px;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--sidebar-border);
+  }
+
+  .sidebar-section-label {
+    display: none;
+  }
+
+  .sidebar-menu {
+    margin-top: 12px;
+
+    display: flex;
+    gap: 8px;
+
+    overflow-x: auto;
+  }
+
+  .sidebar-item {
+    width: auto;
+    min-width: max-content;
+  }
+
+  .sidebar-footer {
+    margin-top: 12px;
+  }
+
+  .sidebar-logout {
+    width: auto;
+    min-width: 130px;
+  }
+}
