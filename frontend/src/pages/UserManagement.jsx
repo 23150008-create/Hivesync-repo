@@ -257,9 +257,19 @@ function UserManagement({ user }) {
     const { name, value } = e.target;
 
     if (name === "role") {
+      const requiresPosition =
+        value === "Admin" || value === "Staff";
+
       setFormData((current) => ({
         ...current,
         role: value,
+        position: requiresPosition ? current.position : "",
+        position_choice: requiresPosition
+          ? current.position_choice
+          : "",
+        custom_position: requiresPosition
+          ? current.custom_position
+          : "",
         vendor_id:
           value === "Supplier"
             ? current.vendor_id
@@ -272,9 +282,7 @@ function UserManagement({ user }) {
           value === "Admin" ||
           current.access_mode === "Default"
             ? [
-                ...(ROLE_DEFAULT_PERMISSIONS[
-                  value
-                ] || []),
+                ...(ROLE_DEFAULT_PERMISSIONS[value] || []),
               ]
             : current.module_permissions,
       }));
@@ -332,9 +340,19 @@ function UserManagement({ user }) {
     const { name, value } = e.target;
 
     if (name === "role") {
+      const requiresPosition =
+        value === "Admin" || value === "Staff";
+
       setEditData((current) => ({
         ...current,
         role: value,
+        position: requiresPosition ? current.position : "",
+        position_choice: requiresPosition
+          ? current.position_choice
+          : "",
+        custom_position: requiresPosition
+          ? current.custom_position
+          : "",
         vendor_id:
           value === "Supplier"
             ? current.vendor_id
@@ -347,9 +365,7 @@ function UserManagement({ user }) {
           value === "Admin" ||
           current.access_mode === "Default"
             ? [
-                ...(ROLE_DEFAULT_PERMISSIONS[
-                  value
-                ] || []),
+                ...(ROLE_DEFAULT_PERMISSIONS[value] || []),
               ]
             : current.module_permissions,
       }));
@@ -555,36 +571,37 @@ function UserManagement({ user }) {
       return false;
     }
 
-    if (!data.position_choice) {
-      showMessage(
-        "error",
-        "Missing Position",
-        "Select a position."
-      );
-      return false;
-    }
+    // Position is required only for Admin and Staff
+    if (data.role === "Admin" || data.role === "Staff") {
+      if (!data.position_choice) {
+        showMessage(
+          "error",
+          "Missing Position",
+          "Select a position."
+        );
+        return false;
+      }
 
-    if (
-      data.position_choice === "Others" &&
-      !String(
-        data.custom_position || ""
-      ).trim()
-    ) {
-      showMessage(
-        "error",
-        "Specify Position",
-        "Enter the custom position for this user."
-      );
-      return false;
-    }
+      if (
+        data.position_choice === "Others" &&
+        !String(data.custom_position || "").trim()
+      ) {
+        showMessage(
+          "error",
+          "Specify Position",
+          "Enter the custom position for this user."
+        );
+        return false;
+      }
 
-    if (!String(data.position || "").trim()) {
-      showMessage(
-        "error",
-        "Missing Position",
-        "Position is required."
-      );
-      return false;
+      if (!String(data.position || "").trim()) {
+        showMessage(
+          "error",
+          "Missing Position",
+          "Position is required."
+        );
+        return false;
+      }
     }
 
     if (!data.email.trim()) {
@@ -1174,47 +1191,46 @@ function UserFormModal({
               />
             </div>
 
-            <div className="user-field">
-              <label>Position</label>
-              <select
-                name="position_choice"
-                value={data.position_choice || ""}
-                onChange={onChange}
-                required
-              >
-                <option value="">
-                  Select position
-                </option>
+            {(data.role === "Admin" || data.role === "Staff") && (
+              <div className="user-field">
+                <label>Position</label>
+                <select
+                  name="position_choice"
+                  value={data.position_choice || ""}
+                  onChange={onChange}
+                  required
+                >
+                  <option value="">
+                    Select position
+                  </option>
 
-                {positionOptions.map(
-                  (position) => (
+                  {positionOptions.map((position) => (
                     <option
                       key={position}
                       value={position}
                     >
                       {position}
                     </option>
-                  )
-                )}
-              </select>
-            </div>
-
-            {data.position_choice === "Others" && (
-              <div className="user-field">
-                <label>
-                  Please Specify Position
-                </label>
-                <input
-                  name="custom_position"
-                  value={
-                    data.custom_position || ""
-                  }
-                  onChange={onChange}
-                  placeholder="Example: Sales Clerk"
-                  required
-                />
+                  ))}
+                </select>
               </div>
             )}
+
+            {(data.role === "Admin" || data.role === "Staff") &&
+              data.position_choice === "Others" && (
+                <div className="user-field">
+                  <label>
+                    Please Specify Position
+                  </label>
+                  <input
+                    name="custom_position"
+                    value={data.custom_position || ""}
+                    onChange={onChange}
+                    placeholder="Example: Sales Clerk"
+                    required
+                  />
+                </div>
+              )}
 
             <div className="user-field user-field-full">
               <label>Email</label>
